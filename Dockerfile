@@ -1,10 +1,8 @@
-FROM python:3.8
+FROM python:3.8 AS builder
 
-WORKDIR /app
-
-COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
+WORKDIR /build
 
 COPY . .
+RUN pip install -e .
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "bank_transactions_api.main:app", "--host", "0.0.0.0", "--port", "8000"]
