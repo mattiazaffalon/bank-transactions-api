@@ -1,5 +1,5 @@
 import os
-import logging as log
+from .mylogging import log
 
 host = os.getenv('MYSQL_HOST')
 port = int(os.getenv('MYSQL_PORT'))

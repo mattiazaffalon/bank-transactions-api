@@ -21,9 +21,9 @@ services:
     restart: always
     environment:
       MYSQL_DATABASE: bank_transactions
-      MYSQL_USER: mattia
-      MYSQL_PASSWORD: mattia
-      MYSQL_ROOT_PASSWORD: mattia
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     ports:
       - "3306:3306"
