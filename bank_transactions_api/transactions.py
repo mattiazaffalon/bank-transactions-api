@@ -1,13 +1,12 @@
-from typing import List
-from datetime import date, datetime
+from datetime import date
+
 from pydantic import BaseModel
 from sqlalchemy import create_engine, Column, Integer, String, Numeric, Date
-from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
-from .appconfig import user, password, host, port, database
+from sqlalchemy.orm import sessionmaker
+from .mysql_connection_provider import connection_provider
 
-SQLALCHEMY_DATABASE_URL = f"mysql+mysqlconnector://{user}:{password}@{host}:{port}/{database}"
-engine = create_engine(SQLALCHEMY_DATABASE_URL)
+engine = connection_provider()
 
 def get_db():
     Session = sessionmaker(autocommit=False, autoflush=False, bind=engine)

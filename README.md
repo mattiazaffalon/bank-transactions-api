@@ -26,3 +26,8 @@ sudo docker-compose --env-file .env-compose up
 ```bash
 curl -X POST -H "Content-Type: application/json" -d @data/transactions_sample.json http://localhost:8000/transactions
 ```
+
+## Deploy to cloud run
+```bash
+gcloud builds submit --substitutions=COMMIT_SHA=test
+```
